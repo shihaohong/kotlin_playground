@@ -40,6 +40,7 @@ fun main() {
     }
 }
 
+// `private` properties can only be accessed within the class.
 abstract class Dwelling(private var residents: Int) {
     abstract val buildingMaterial: String
     abstract val capacity: Int
