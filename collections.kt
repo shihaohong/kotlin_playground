@@ -58,7 +58,30 @@ fun main() {
 
     // triple is a function that takes an Int and returns
     // an Int that triple the input.
+    // Left side is the function type of the lambda
+    // Right side is the lambda itself
     val triple: (Int) -> Int = { a: Int -> a * 3 }
+    // Shorthand (for single parameter):
+    // val triple: (Int) -> Int = { it * 3 }
     println(triple(5))
 
+    // higher-order functions
+    // Basically, passing functions into functions
+    println(peopleNames.sortedWith { str1: String, str2: String -> str1.length - str2.length })
+
+    // Tying back to Android setOnClickListener
+    // Long form:
+    // Single parameter is an `onClickListener` function.
+    // button.setOnClickListener(object: View.onClickListener {
+    //   override fun onClick(view: View?) {
+    //     calculaterTip()
+    //   }
+    // })
+    // Short form:
+    // Possible because of Single-Abstract-Method (SAM)
+    // conversion.
+    // button.setOnClickListener { view -> calculateTip() }
+    // Since `view` is never used in the callback, can further
+    // shorten to:
+    // button.setOnClickListener { calculateTip() }
 }
